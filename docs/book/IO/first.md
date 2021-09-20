@@ -33,13 +33,3 @@ A --> 应用程序的进程缓冲区
 <kbd>read</kbd> ``&`` <kbd>write</kbd> 两个系统调用都不负责内核缓冲区和物理设备之间的交换
 所有底层的读写操作，是由操作系统内核完成的
 
-
-```eval-python
-def factorial(n):                                   
-  if n == 0:                          
-    return 1                              
-  else:
-    return n * factorial(n - 1)           
-
-print(factorial(5))
-```
