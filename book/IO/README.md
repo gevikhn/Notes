@@ -1,6 +1,8 @@
 # IO学习
 IO相关的笔记
 
-```eval-oython
-print 'Ciallo'
+
+```eval-python
+print [x + 1 for x in range(10)]
 ```
+
