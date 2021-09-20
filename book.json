@@ -6,8 +6,8 @@
     "unchanged": [],
     "sortedBy": [],
     "disableTitleFormatting": true,
-    "plugins": ["mermaid-gb3","expandable-chapters","back-to-top-button","code","splitter","-lunr", 
-      "-search","search-pro","pageview-count","tbfed-pagefooter","popup"],
+    "plugins": ["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr", 
+      "-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element"],
     "pluginsConfig": {
       "theme-default": {
            "showLevel": true
@@ -16,6 +16,9 @@
         "copyright":"Copyright &copy dsx2016.com 2019",
         "modify_label": "该文章修订时间：",
         "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "hide-element":{
+      "elements": [".gitbook-link","navigation-prev","navigation-next"]
     }
     }
   }
