@@ -1,3 +1,23 @@
 {
-    "plugins": ["summary","mermaid-gb3"]
+    "title": "笔记",
+    "outputfile": "./SUMMARY.md",
+    "catalog": "all",
+    "ignores": ["_book", "node_modules","docs"],
+    "unchanged": [],
+    "sortedBy": [],
+    "disableTitleFormatting": true,
+    "plugins": ["mermaid-gb3","expandable-chapters","back-to-top-button","code","splitter","-lunr", 
+      "-search","search-pro","pageview-count","tbfed-pagefooter","popup"],
+    "pluginsConfig": {
+      "theme-default": {
+           "showLevel": true
+      },
+      "tbfed-pagefooter": {
+        "copyright":"Copyright &copy dsx2016.com 2019",
+        "modify_label": "该文章修订时间：",
+        "modify_format": "YYYY-MM-DD HH:mm:ss"
+    }
+    }
   }
+
+  
