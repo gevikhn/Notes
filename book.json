@@ -18,7 +18,7 @@
         "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
     "hide-element":{
-      "elements": [".gitbook-link","navigation-prev","navigation-next"]
+      "elements": [".gitbook-link",".navigation-prev",".navigation-next"]
     }
     }
   }
