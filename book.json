@@ -1,5 +1,6 @@
 {
     "title": "笔记",
+    "author": "援桌骑士宁宁",
     "outputfile": "./SUMMARY.md",
     "catalog": "all",
     "ignores": ["_book", "node_modules","docs"],
@@ -13,12 +14,12 @@
            "showLevel": true
       },
       "tbfed-pagefooter": {
-        "copyright":"Copyright &copy dsx2016.com 2019",
+        "copyright":"Ciallo",
         "modify_label": "该文章修订时间：",
         "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
     "hide-element":{
-      "elements": [".gitbook-link",".navigation-prev",".navigation-next"]
+      "elements": [".gitbook-link",".navigation-prev",".navigation-next",".copyright"]
     },
     "fontSettings": {
       "family": "msyh",
