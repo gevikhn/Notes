@@ -429,21 +429,62 @@ eureka:
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"></td>
+<td style="text-align:center">&#x670D;&#x52A1;&#x5065;&#x5EB7;&#x68C0;&#x67E5;</td>
+<td style="text-align:center">&#x53EF;&#x914D;&#x652F;&#x6301;</td>
+<td style="text-align:center">&#x670D;&#x52A1;&#x72B6;&#x6001;&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x786C;&#x76D8;&#x7B49;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x591A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;</td>
+<td style="text-align:center">&#x2014;</td>
+<td style="text-align:center">&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td style="text-align:center">kv &#x5B58;&#x50A8;&#x670D;&#x52A1;</td>
+<td style="text-align:center">&#x2014;</td>
+<td style="text-align:center">&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4E00;&#x81F4;&#x6027;</td>
+<td style="text-align:center">&#x2014;</td>
+<td style="text-align:center">raft</td>
+</tr>
+<tr>
+<td style="text-align:center">cap</td>
+<td style="text-align:center">ap</td>
+<td style="text-align:center">cp</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4F7F;&#x7528;&#x63A5;&#x53E3;(&#x591A;&#x8BED;&#x8A00;&#x80FD;&#x529B;)</td>
+<td style="text-align:center">http&#xFF08;sidecar&#xFF09;</td>
+<td style="text-align:center">&#x652F;&#x6301; http &#x548C; dns</td>
+</tr>
+<tr>
+<td style="text-align:center">watch&#x652F;&#x6301;</td>
+<td style="text-align:center">&#x652F;&#x6301; long polling/&#x5927;&#x90E8;&#x5206;&#x589E;&#x91CF;</td>
+<td style="text-align:center">&#x5168;&#x91CF;/&#x652F;&#x6301;long polling</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x81EA;&#x8EAB;&#x76D1;&#x63A7;</td>
+<td style="text-align:center">metrics</td>
+<td style="text-align:center">metrics</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x5B89;&#x5168;</td>
+<td style="text-align:center">&#x2014;</td>
+<td style="text-align:center">acl/https</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x7F16;&#x7A0B;&#x8BED;&#x8A00;</td>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">go</td>
+</tr>
+<tr>
+<td style="text-align:center">Spring Cloud&#x96C6;&#x6210;</td>
+<td style="text-align:center">&#x5DF2;&#x652F;&#x6301;</td>
+<td style="text-align:center">&#x5DF2;&#x652F;&#x6301;</td>
 </tr>
 </tbody>
 </table>
-<p>&#x670D;&#x52A1;&#x5065;&#x5EB7;&#x68C0;&#x67E5; | &#x53EF;&#x914D;&#x652F;&#x6301; | &#x670D;&#x52A1;&#x72B6;&#x6001;&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x786C;&#x76D8;&#x7B49; |
-| &#x591A;&#x6570;&#x636E;&#x4E2D;&#x5FC3; | &#x2014; | &#x652F;&#x6301; |
-| kv &#x5B58;&#x50A8;&#x670D;&#x52A1; | &#x2014; |    &#x652F;&#x6301; |
-| &#x4E00;&#x81F4;&#x6027; | &#x2014; | raft |
-| cap | ap | cp |
-| &#x4F7F;&#x7528;&#x63A5;&#x53E3;(&#x591A;&#x8BED;&#x8A00;&#x80FD;&#x529B;) | http&#xFF08;sidecar&#xFF09;| &#x652F;&#x6301; http &#x548C; dns |
-| watch&#x652F;&#x6301; | &#x652F;&#x6301; long polling/&#x5927;&#x90E8;&#x5206;&#x589E;&#x91CF; | &#x5168;&#x91CF;/&#x652F;&#x6301;long polling |
-| &#x81EA;&#x8EAB;&#x76D1;&#x63A7; | metrics | metrics |
-| &#x5B89;&#x5168; | &#x2014;    | acl/https |
-| &#x7F16;&#x7A0B;&#x8BED;&#x8A00; | Java |    go |
-| Spring Cloud&#x96C6;&#x6210; |    &#x5DF2;&#x652F;&#x6301; | &#x5DF2;&#x652F;&#x6301; |</p>
 <h3 id="&#x5B89;&#x88C5;consul">&#x5B89;&#x88C5;Consul</h3>
 <p>&#x5728;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#xFF1A;<a href="https://www.consul.io/downloads" target="_blank">&#x4E0B;&#x8F7D;</a>
 <img src="image/ConsulDownload.jpg" alt="Reader"></p>
@@ -476,7 +517,7 @@ eureka:
 <p>&#x79FB;&#x9664;&#x4E3B;&#x7C7B;&#x4E2D;<code>@EnableEurekaClient</code>&#x6CE8;&#x89E3;&#x5373;&#x53EF;&#xFF0C;&#x5F97;&#x76CA;&#x4E8E;SpringCloud&#x5BF9;&#x670D;&#x52A1;&#x6CBB;&#x7406;&#x7684;&#x62BD;&#x8C61;&#x5C42;&#xFF0C;&#x8BE5;&#x9879;&#x76EE;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x8F6C;&#x6362;Consul&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x6CBB;&#x7406;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
 <p><img src="image/ConsulServer.jpg" alt="Reader"> </p>
 <footer class="page-footer"><span class="copyright">Ciallo all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-09-22 15:19:31
+2021-09-22 15:28:17
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style> <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
                                 
@@ -517,7 +558,7 @@ eureka:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"服务治理","level":"1.4.1","depth":2,"previous":{"title":"SpringCloud","level":"1.4","depth":1,"path":"book/SpringCloud/README.md","ref":"book/SpringCloud/README.md","articles":[{"title":"服务治理","level":"1.4.1","depth":2,"path":"book/SpringCloud/服务治理.md","ref":"book/SpringCloud/服务治理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr","yahei","theme-comscore","autotheme","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element","page-toc-button"],"ignores":["_book","node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Ciallo","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"yahei":{},"splitter":{},"search-pro":{},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".navigation-prev",".navigation-next",".copyright"]},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"family":"msyh","size":2},"highlight":{},"mermaid-gb3":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"back-to-top-button":{},"pageview-count":{},"alerts":{},"autotheme":{"night":[20,21,22,23,0,1,2,3,4,5],"sepia":[6,7,8,17,18,19],"white":[9,10,11,12,13,14,15,16]},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"援桌骑士宁宁","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":[],"disableTitleFormatting":true,"variables":{},"title":"笔记","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"./SUMMARY.md"},"file":{"path":"book/SpringCloud/服务治理.md","mtime":"2021-09-22T07:19:31.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-22T07:19:38.886Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"服务治理","level":"1.4.1","depth":2,"previous":{"title":"SpringCloud","level":"1.4","depth":1,"path":"book/SpringCloud/README.md","ref":"book/SpringCloud/README.md","articles":[{"title":"服务治理","level":"1.4.1","depth":2,"path":"book/SpringCloud/服务治理.md","ref":"book/SpringCloud/服务治理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr","yahei","theme-comscore","autotheme","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element","page-toc-button"],"ignores":["_book","node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Ciallo","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"yahei":{},"splitter":{},"search-pro":{},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".navigation-prev",".navigation-next",".copyright"]},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"family":"msyh","size":2},"highlight":{},"mermaid-gb3":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"back-to-top-button":{},"pageview-count":{},"alerts":{},"autotheme":{"night":[20,21,22,23,0,1,2,3,4,5],"sepia":[6,7,8,17,18,19],"white":[9,10,11,12,13,14,15,16]},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"援桌骑士宁宁","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":[],"disableTitleFormatting":true,"variables":{},"title":"笔记","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"./SUMMARY.md"},"file":{"path":"book/SpringCloud/服务治理.md","mtime":"2021-09-22T07:28:17.787Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-22T07:28:25.696Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
