@@ -5,3 +5,4 @@
   * [first](book/IO/first.md)
 - [SpringCloud](book/SpringCloud/README.md)
   * [服务治理](book/SpringCloud/服务治理.md)
+  * [服务消费](book/SpringCloud/服务消费.md)
