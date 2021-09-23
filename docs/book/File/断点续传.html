@@ -1,0 +1,592 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>断点续传 · 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="援桌骑士宁宁">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-yahei/yahei.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../SpringCloud/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../IO/">
+            
+                <a href="../IO/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    IO
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../IO/first.html">
+            
+                <a href="../IO/first.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    first
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    File
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="断点续传.html">
+            
+                <a href="断点续传.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    断点续传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SpringCloud/">
+            
+                <a href="../SpringCloud/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    SpringCloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SpringCloud/服务治理.html">
+            
+                <a href="../SpringCloud/服务治理.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    服务治理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SpringCloud/服务消费.html">
+            
+                <a href="../SpringCloud/服务消费.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    服务消费
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >断点续传</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>package com.seeyouweb.mvc;</p>
+<p>import org.apache.catalina.connector.ClientAbortException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;</p>
+<p>import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;</p>
+<p>@Controller
+public class Main {</p>
+<pre><code>public static void main(String[] args) {
+    SpringApplication.run(Main.class, args);
+}
+
+@RequestMapping(&quot;/&quot;)
+void home(HttpServletRequest request, HttpServletResponse response, @RequestHeader(required = false) String range) {
+    //&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;
+    File music = new File(&quot;E:\\CloudMusic\\&#x6797;&#x5B50;&#x7965; - &#x8857;&#x5934;&#x9738;&#x738B;&#x699C;.mp3&quot;);
+
+
+    //&#x5F00;&#x59CB;&#x4E0B;&#x8F7D;&#x4F4D;&#x7F6E;
+    long startByte = 0;
+    //&#x7ED3;&#x675F;&#x4E0B;&#x8F7D;&#x4F4D;&#x7F6E;
+    long endByte = music.length() - 1;
+
+    //&#x6709;range&#x7684;&#x8BDD;
+    if (range != null &amp;&amp; range.contains(&quot;bytes=&quot;) &amp;&amp; range.contains(&quot;-&quot;)) {
+        //&#x5751;&#x7239;&#x5730;&#x65B9;&#x4E00;&#xFF1A;http&#x72B6;&#x6001;&#x7801;&#x8981;&#x4E3A;206
+        response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
+
+        range = range.substring(range.lastIndexOf(&quot;=&quot;) + 1).trim();
+        String[] ranges = range.split(&quot;-&quot;);
+        try {
+            //&#x5224;&#x65AD;range&#x7684;&#x7C7B;&#x578B;
+            if (ranges.length == 1) {
+                //&#x7C7B;&#x578B;&#x4E00;&#xFF1A;bytes=-2343
+                if (range.startsWith(&quot;-&quot;)) {
+                    endByte = Long.parseLong(ranges[0]);
+                }
+                //&#x7C7B;&#x578B;&#x4E8C;&#xFF1A;bytes=2343-
+                else if (range.endsWith(&quot;-&quot;)) {
+                    startByte = Long.parseLong(ranges[0]);
+                }
+            }
+            //&#x7C7B;&#x578B;&#x4E09;&#xFF1A;bytes=22-2343
+            else if (ranges.length == 2) {
+                startByte = Long.parseLong(ranges[0]);
+                endByte = Long.parseLong(ranges[1]);
+            }
+
+        } catch (NumberFormatException e) {
+            startByte = 0;
+            endByte = music.length() - 1;
+        }
+    } else {
+        //&#x6CA1;&#x6709;ranges&#x5373;&#x5168;&#x90E8;&#x4E00;&#x6B21;&#x6027;&#x4F20;&#x8F93;&#xFF0C;&#x9700;&#x8981;&#x7528;200&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x8FD9;&#x4E00;&#x884C;&#x5E94;&#x8BE5;&#x53EF;&#x4EE5;&#x7701;&#x6389;&#xFF0C;&#x56E0;&#x4E3A;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x662F;200&#x72B6;&#x6001;&#x7801;
+        response.setStatus(HttpServletResponse.SC_OK);
+    }
+
+    //&#x8981;&#x4E0B;&#x8F7D;&#x7684;&#x957F;&#x5EA6;&#xFF08;endByte&#x4E3A;&#x603B;&#x957F;&#x5EA6;-1&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x8981;&#x52A0;&#x56DE;&#x53BB;&#xFF09;
+    long contentLength = endByte - startByte + 1;
+    //&#x6587;&#x4EF6;&#x540D;
+    String fileName = music.getName();
+    //&#x6587;&#x4EF6;&#x7C7B;&#x578B;
+    String contentType = request.getServletContext().getMimeType(fileName);
+
+
+    //&#x5404;&#x79CD;&#x54CD;&#x5E94;&#x5934;&#x8BBE;&#x7F6E;
+    //&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;https://www.ibm.com/developerworks/cn/java/joy-down/index.html
+    //&#x5751;&#x7239;&#x5730;&#x65B9;&#x4E8C;&#xFF1A;&#x770B;&#x4EE3;&#x7801;
+    response.setHeader(&quot;Accept-Ranges&quot;, &quot;bytes&quot;);
+    response.setContentType(contentType);
+    response.setHeader(&quot;Content-Type&quot;, contentType);
+    //&#x8FD9;&#x91CC;&#x6587;&#x4EF6;&#x540D;&#x6362;&#x4F60;&#x60F3;&#x8981;&#x7684;&#xFF0C;inline&#x8868;&#x793A;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF08;&#x6BD4;&#x5982;&#x64AD;&#x653E;&#x97F3;&#x4E50;&#xFF0C;&#x6211;&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#xFF09;
+    //&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;http://hw1287789687.iteye.com/blog/2188500
+    response.setHeader(&quot;Content-Disposition&quot;, &quot;inline;filename=test.mp3&quot;);
+    response.setHeader(&quot;Content-Length&quot;, String.valueOf(contentLength));
+    //&#x5751;&#x7239;&#x5730;&#x65B9;&#x4E09;&#xFF1A;Content-Range&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;
+    // [&#x8981;&#x4E0B;&#x8F7D;&#x7684;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;]-[&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;]/[&#x6587;&#x4EF6;&#x603B;&#x5927;&#x5C0F;]
+    response.setHeader(&quot;Content-Range&quot;, &quot;bytes &quot; + startByte + &quot;-&quot; + endByte + &quot;/&quot; + music.length());
+
+
+    BufferedOutputStream outputStream = null;
+    RandomAccessFile randomAccessFile = null;
+    //&#x5DF2;&#x4F20;&#x9001;&#x6570;&#x636E;&#x5927;&#x5C0F;
+    long transmitted = 0;
+    try {
+        randomAccessFile = new RandomAccessFile(music, &quot;r&quot;);
+        outputStream = new BufferedOutputStream(response.getOutputStream());
+        byte[] buff = new byte[4096];
+        int len = 0;
+        randomAccessFile.seek(startByte);
+        //&#x5751;&#x7239;&#x5730;&#x65B9;&#x56DB;&#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5230;&#x4E86;&#x6700;&#x540E;&#x4E0D;&#x8DB3;4096&#xFF08;buff&#x7684;length&#xFF09;&#x4E2A;byte&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#xFF08;(transmitted + len) &lt;= contentLength&#xFF09;&#x8981;&#x653E;&#x524D;&#x9762;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;&#xFF01;
+        //&#x4E0D;&#x7136;&#x4F1A;&#x5148;&#x8BFB;&#x53D6;randomAccessFile&#xFF0C;&#x9020;&#x6210;&#x540E;&#x9762;&#x8BFB;&#x53D6;&#x4F4D;&#x7F6E;&#x51FA;&#x9519;&#xFF0C;&#x627E;&#x4E86;&#x4E00;&#x5929;&#x624D;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#x6240;&#x5728;
+        while ((transmitted + len) &lt;= contentLength &amp;&amp; (len = randomAccessFile.read(buff)) != -1) {
+            outputStream.write(buff, 0, len);
+            transmitted += len;
+            //&#x505C;&#x4E00;&#x4E0B;&#xFF0C;&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#xFF08;&#x672C;&#x5730;&#x4E0B;&#x8F7D;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x7279;&#x522B;&#x5FEB;&#xFF0C;&#x6CA1;&#x53CD;&#x5E94;&#x8FC7;&#x6765;&#x5C31;&#x4E0B;&#x8F7D;&#x597D;&#x4E86;&#xFF09;&#xFF0C;&#x5B9E;&#x9645;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x7528;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5220;&#x9664;&#x8FD9;&#x4E00;&#x884C;
+            Thread.sleep(10);
+        }
+        //&#x5904;&#x7406;&#x4E0D;&#x8DB3;buff.length&#x90E8;&#x5206;
+        if (transmitted &lt; contentLength) {
+            len = randomAccessFile.read(buff, 0, (int) (contentLength - transmitted));
+            outputStream.write(buff, 0, len);
+            transmitted += len;
+        }
+
+        outputStream.flush();
+        response.flushBuffer();
+        randomAccessFile.close();
+        System.out.println(&quot;&#x4E0B;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF1A;&quot; + startByte + &quot;-&quot; + endByte + &quot;&#xFF1A;&quot; + transmitted);
+
+    } catch (ClientAbortException e) {
+        System.out.println(&quot;&#x7528;&#x6237;&#x505C;&#x6B62;&#x4E0B;&#x8F7D;&#xFF1A;&quot; + startByte + &quot;-&quot; + endByte + &quot;&#xFF1A;&quot; + transmitted);
+        //&#x6355;&#x83B7;&#x6B64;&#x5F02;&#x5E38;&#x8868;&#x793A;&#x62E5;&#x62A4;&#x505C;&#x6B62;&#x4E0B;&#x8F7D;
+    } catch (IOException | InterruptedException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+</code></pre><p>} </p>
+<footer class="page-footer"><span class="copyright">Ciallo all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-09-23 18:19:06
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style> <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: File">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../SpringCloud/" class="navigation navigation-next " aria-label="Next page: SpringCloud">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"断点续传","level":"1.4.1","depth":2,"next":{"title":"SpringCloud","level":"1.5","depth":1,"path":"book/SpringCloud/README.md","ref":"book/SpringCloud/README.md","articles":[{"title":"服务治理","level":"1.5.1","depth":2,"path":"book/SpringCloud/服务治理.md","ref":"book/SpringCloud/服务治理.md","articles":[]},{"title":"服务消费","level":"1.5.2","depth":2,"path":"book/SpringCloud/服务消费.md","ref":"book/SpringCloud/服务消费.md","articles":[]}]},"previous":{"title":"File","level":"1.4","depth":1,"path":"book/File/README.md","ref":"book/File/README.md","articles":[{"title":"断点续传","level":"1.4.1","depth":2,"path":"book/File/断点续传.md","ref":"book/File/断点续传.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr","yahei","theme-comscore","autotheme","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element","page-toc-button"],"ignores":["_book","node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Ciallo","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"yahei":{},"splitter":{},"search-pro":{},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".navigation-prev",".navigation-next",".copyright"]},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"family":"msyh","size":2},"highlight":{},"mermaid-gb3":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"back-to-top-button":{},"pageview-count":{},"alerts":{},"autotheme":{"night":[20,21,22,23,0,1,2,3,4,5],"sepia":[6,7,8,17,18,19],"white":[9,10,11,12,13,14,15,16]},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"援桌骑士宁宁","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":[],"disableTitleFormatting":true,"variables":{},"title":"学习笔记","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"./SUMMARY.md"},"file":{"path":"book/File/断点续传.md","mtime":"2021-09-23T10:19:06.422Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-23T10:21:02.604Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-autotheme/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
