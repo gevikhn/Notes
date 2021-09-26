@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>服务消费 · 学习笔记</title>
+        <title>服务网关 · 学习笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -109,10 +109,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="服务消费Ribbon.html" />
     
-    
-    <link rel="prev" href="服务治理.html" />
+    <link rel="prev" href="服务容错保护.html" />
     
 
     </head>
@@ -274,7 +272,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="服务消费.html">
+        <li class="chapter " data-level="1.5.2" data-path="服务消费.html">
             
                 <a href="服务消费.html">
             
@@ -349,7 +347,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="服务网关.html">
+        <li class="chapter active" data-level="1.5.7" data-path="服务网关.html">
             
                 <a href="服务网关.html">
             
@@ -399,7 +397,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >服务消费</a>
+        <a href="../.." >服务网关</a>
     </h1>
 </div>
 
@@ -414,68 +412,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x670D;&#x52A1;&#x6D88;&#x8D39;">&#x670D;&#x52A1;&#x6D88;&#x8D39;</h1>
-<blockquote>
-<p>&#x5728;&#x524D;&#x9762;&#x5B8C;&#x6210;&#x4E86;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x53CA;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#xFF0C;&#x5728;&#x672C;&#x7AE0;&#x5C06;&#x5B8C;&#x6210;&#x670D;&#x52A1;&#x6D88;&#x8D39;&#x8005;</p>
-</blockquote>
-<p>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56; <code>pom.xml</code></p>
-<pre><code class="lang-pom.xml">    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
-    &lt;/dependency&gt;
+                                <h1 id="&#x670D;&#x52A1;&#x7F51;&#x5173;">&#x670D;&#x52A1;&#x7F51;&#x5173;</h1>
+<p>&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x7F51;&#x5173;
+&#x5728;<code>pom.xml</code>&#x4E2D;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</p>
+<pre><code class="lang-Java">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-zuul&lt;/artifactId&gt;
+&lt;/dependency&gt;
 </code></pre>
-<p>&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>application.yml</code></p>
-<pre><code class="lang-application.yml">server:
-  port: 9001
+<p>&#x5728;&#x4E3B;&#x7C7B;&#x6DFB;&#x52A0;<code>@EnableZuulProxy</code>&#x548C;<code>@EnableDiscoveryClient</code>&#x6CE8;&#x89E3;</p>
+<pre><code class="lang-Java"><span class="hljs-meta">@EnableZuulProxy</span>
+<span class="hljs-meta">@EnableDiscoveryClient</span>
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApiGatewayApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(ApiGatewayApplication.class, args);
+    }
+
+}
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<code>application.yml</code></p>
+<pre><code class="lang-Java">server:
+  port: <span class="hljs-number">1111</span>
+
 spring:
   application:
-    name: eureka-consumer
+    name: api-gateway
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:1001/eureka/
+      defaultZone: http:<span class="hljs-comment">//127.0.0.1:1001/eureka/</span>
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: <span class="hljs-string">&quot;*&quot;</span>
 </code></pre>
-<p>&#x5728;&#x4E3B;&#x7C7B;&#x4E2D;&#x6DFB;&#x52A0;&#x6CE8;&#x89E3;<code>@EnableEurekaClient</code>, &#x521B;&#x5EFA;RestTemplate Bean, &#x7528;&#x4E8E;&#x771F;&#x6B63;&#x53D1;&#x8D77;REST&#x8BF7;&#x6C42;</p>
-<pre><code class="lang-EurekaConsumerApplication.java">@EnableEurekaClient
-@SpringBootApplication
-public class EurekaConsumerApplication {
-    @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaConsumerApplication.class, args);
-    }
-
+<p>&#x8BBF;&#x95EE;<a href="http://localhost:1111/actuator/routes" target="_blank">http://localhost:1111/actuator/routes</a>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x8282;&#x70B9;</p>
+<pre><code class="lang-JSON">{
+    <span class="hljs-string">&quot;/eureka-consumer/**&quot;</span>: <span class="hljs-string">&quot;eureka-consumer&quot;</span>,
+    <span class="hljs-string">&quot;/eureka-client/**&quot;</span>: <span class="hljs-string">&quot;eureka-client&quot;</span>
 }
 </code></pre>
-<p>&#x521B;&#x5EFA;Controller</p>
-<pre><code class="lang-Java"><span class="hljs-meta">@RestController</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DCController</span> </span>{
-    <span class="hljs-meta">@Autowired</span>
-    LoadBalancerClient loadBalancerClient;
-    <span class="hljs-meta">@Autowired</span>
-    RestTemplate restTemplate;
-
-    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/consumer&quot;</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">dc</span><span class="hljs-params">()</span></span>{
-        ServiceInstance instance = loadBalancerClient.choose(<span class="hljs-string">&quot;eureka-client&quot;</span>);
-        String url = <span class="hljs-string">&quot;http://&quot;</span>+instance.getHost()+<span class="hljs-string">&quot;:&quot;</span>+instance.getPort()+<span class="hljs-string">&quot;/dc&quot;</span>;
-        System.out.println(url);
-        <span class="hljs-keyword">return</span> restTemplate.getForObject(url,String.class);
-    }
-}
+<p>&#x8BBF;&#x95EE;<a href="http://localhost:1111/eureka-consumer/consumer" target="_blank">http://localhost:1111/eureka-consumer/consumer</a>&#x53EF;&#x4EE5;&#x50CF;&#x4E4B;&#x524D;&#x4E00;&#x6837;&#x8BBF;&#x95EE;&#x6D88;&#x8D39;&#x8005;&#x63A5;&#x53E3;</p>
+<h2 id="&#x8DEF;&#x7531;&#x914D;&#x7F6E;">&#x8DEF;&#x7531;&#x914D;&#x7F6E;</h2>
+<h3 id="&#x4F20;&#x7EDF;&#x8DEF;&#x7531;&#x914D;&#x7F6E;">&#x4F20;&#x7EDF;&#x8DEF;&#x7531;&#x914D;&#x7F6E;</h3>
+<ul>
+<li><p>&#x5355;&#x5B9E;&#x4F8B;&#x914D;&#x7F6E;&#xFF1A;&#x901A;&#x8FC7;&#x4E00;&#x7EC4;zuul.routes.\<route>.path&#x4E0E;zuul.routes.\<route>.url&#x53C2;&#x6570;&#x5BF9;&#x7684;&#x65B9;&#x5F0F;&#x914D;&#x7F6E;</route></route></p>
+<pre><code class="lang-Java"><span class="hljs-string">&quot;zuul.routes.user-service.path=/user-service/**&quot;</span>
+<span class="hljs-string">&quot;zuul.routes.user-service.url=http://localhost:8080/&quot;</span>
 </code></pre>
-<p>LoadBalancerClient &#x4E0E; DiscoveryClient &#x4E00;&#x6837;&#x4F5C;&#x4E3A;SpringCloud&#x63D0;&#x4F9B;&#x7684;&#x62BD;&#x8C61;&#x5C42;&#x63A5;&#x53E3;&#xFF0C;LoadBalancerClient&#x5982;&#x5176;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x662F;&#x4E00;&#x4E2A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x62BD;&#x8C61;&#x5B9A;&#x4E49;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;SpringCloud&#x63D0;&#x4F9B;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B9E;&#x73B0;<code>BlockingLoadBalancerClient</code>&#x3002;</p>
-<hr>
-<p>&#x5728;&#x6D88;&#x8D39;&#x8005;&#x7684;controller&#x4E2D;&#xFF0C;&#x6CE8;&#x5165;&#x4E86;<code>LoadBalancerClient</code>&#x548C;<code>RestTemplate</code>, &#x5728;<code>&apos;/consumer&apos;</code>&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x5148;&#x901A;&#x8FC7; <code>loadBalancerClient</code> &#x7684; <code>choose</code> &#x83B7;&#x53D6;&#x5230;&#x4E00;&#x4E2A; <code>eureka-client</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#x62FC;&#x63A5;&#x5904;<code>&apos;/dc&apos;</code>&#x63A5;&#x53E3;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x5229;&#x7528;<code>RestTemplate</code>&#x7684;&#x5BF9;&#x8C61;&#x5B8C;&#x6210;&#x5BF9;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#x63A5;&#x53E3;&#x7684;&#x8C03;&#x7528; </p>
+</li>
+<li><p>&#x591A;&#x5B9E;&#x4F8B;&#x914D;&#x7F6E;&#xFF1A;&#x901A;&#x8FC7;&#x4E00;&#x7EC4;zuul.routes.\<route>.path&#x4E0E;zuul.routes.\<route>.serviceId&#x53C2;&#x6570;&#x5BF9;&#x7684;&#x65B9;&#x5F0F;&#x914D;&#x7F6E;</route></route></p>
+<pre><code class="lang-Java">  zuul.routes.user-service.path=/user-service<span class="hljs-comment">/**
+  zuul.routes.user-service.serviceId=user-service
+
+  ribbon.eureka.enabled=false
+  user-service.ribbon.listOfServers=http://localhost:8080/,http://localhost:8081/
+</span></code></pre>
+</li>
+<li><p><code>ribbon.eureka.enabled</code>&#xFF1A;&#x7531;&#x4E8E;<code>zuul.routes.&lt;route&gt;.serviceId</code>&#x6307;&#x5B9A;&#x7684;&#x662F;&#x670D;&#x52A1;&#x540D;&#x79F0;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;Ribbon&#x4F1A;&#x6839;&#x636E;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x673A;&#x5236;&#x6765;&#x83B7;&#x53D6;&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x540D;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x4F8B;&#x6E05;&#x5355;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x82E5;&#x6CA1;&#x6709;&#x6574;&#x5408;&#x7C7B;&#x4F3C;Eureka&#x4E4B;&#x7C7B;&#x7684;&#x670D;&#x52A1;&#x6CBB;&#x7406;&#x6846;&#x67B6;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x4E0D;&#x7136;&#x914D;&#x7F6E;&#x7684;<code>serviceId</code>&#x662F;&#x83B7;&#x53D6;&#x4E0D;&#x5230;&#x5BF9;&#x5E94;&#x5B9E;&#x4F8B;&#x6E05;&#x5355;&#x7684;&#x3002;</p>
+</li>
+<li><code>user-service.ribbon.listOfServers</code>&#xFF1A;&#x8BE5;&#x53C2;&#x6570;&#x5185;&#x5BB9;&#x4E0E;<code>zuul.routes.&lt;route&gt;.serviceId</code>&#x7684;&#x914D;&#x7F6E;&#x76F8;&#x5BF9;&#x5E94;&#xFF0C;&#x5F00;&#x5934;&#x7684;<code>user-service</code>&#x5BF9;&#x5E94;&#x4E86;<code>serviceId</code>&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x914D;&#x7F6E;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x8BE5;&#x5E94;&#x7528;&#x5185;&#x90E8;&#x624B;&#x5DE5;&#x7EF4;&#x62A4;&#x4E86;&#x670D;&#x52A1;&#x4E0E;&#x5B9E;&#x4F8B;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x3002;</li>
+</ul>
+<h3 id="&#x670D;&#x52A1;&#x8DEF;&#x7531;&#x914D;&#x7F6E;">&#x670D;&#x52A1;&#x8DEF;&#x7531;&#x914D;&#x7F6E;</h3>
+<blockquote>
+<p>Spring Cloud Zuul&#x901A;&#x8FC7;&#x4E0E;Spring Cloud Eureka&#x7684;&#x6574;&#x5408;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x5BF9;&#x670D;&#x52A1;&#x5B9E;&#x4F8B;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x7EF4;&#x62A4;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x670D;&#x52A1;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5411;&#x4F20;&#x7EDF;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x90A3;&#x6837;&#x4E3A;serviceId&#x53BB;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x7684;&#x670D;&#x52A1;&#x5B9E;&#x4F8B;&#x5730;&#x5740;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4E00;&#x7EC4;<code>zuul.routes.&lt;route&gt;.path</code>&#x4E0E;<code>zuul.routes.&lt;route&gt;.serviceId</code>&#x53C2;&#x6570;&#x5BF9;&#x7684;&#x65B9;&#x5F0F;&#x914D;&#x7F6E;&#x5373;&#x53EF;</p>
+</blockquote>
+<pre><code class="lang-Java">zuul.routes.user-service.path=/user-service<span class="hljs-comment">/**
+zuul.routes.user-service.serviceId=user-service
+</span></code></pre>
+<p>&#x5BF9;&#x4E8E;&#x9762;&#x5411;&#x670D;&#x52A1;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#xFF0C;&#x9664;&#x4E86;&#x4F7F;&#x7528;path&#x4E0E;serviceId&#x6620;&#x5C04;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#xFF1A;<code>zuul.routes.&lt;serviceId&gt;=&lt;path&gt;</code>&#xFF0C;&#x5176;&#x4E2D;<code>&lt;serviceId&gt;</code>&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8DEF;&#x7531;&#x7684;&#x5177;&#x4F53;&#x670D;&#x52A1;&#x540D;&#xFF0C;<code>&lt;path&gt;</code>&#x7528;&#x6765;&#x914D;&#x7F6E;&#x5339;&#x914D;&#x7684;&#x8BF7;&#x6C42;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-Java">zuul.routes.user-service=/user-service<span class="hljs-comment">/**
+</span></code></pre>
 <footer class="page-footer"><span class="copyright">Ciallo all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-09-24 10:58:15
+2021-09-26 17:05:23
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style> <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
                                 
@@ -504,14 +524,10 @@ public class EurekaConsumerApplication {
 
             
                 
-                <a href="服务治理.html" class="navigation navigation-prev " aria-label="Previous page: 服务治理">
+                <a href="服务容错保护.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 服务容错保护">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="服务消费Ribbon.html" class="navigation navigation-next " aria-label="Next page: 服务消费(Ribbon)">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -520,7 +536,7 @@ public class EurekaConsumerApplication {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"服务消费","level":"1.5.2","depth":2,"next":{"title":"服务消费(Ribbon)","level":"1.5.3","depth":2,"path":"book/SpringCloud/服务消费Ribbon.md","ref":"book/SpringCloud/服务消费Ribbon.md","articles":[]},"previous":{"title":"服务治理","level":"1.5.1","depth":2,"path":"book/SpringCloud/服务治理.md","ref":"book/SpringCloud/服务治理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr","yahei","theme-comscore","autotheme","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element","page-toc-button"],"ignores":["_book","node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Ciallo","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"yahei":{},"splitter":{},"search-pro":{},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".navigation-prev",".navigation-next",".copyright"]},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"family":"msyh","size":2},"highlight":{},"mermaid-gb3":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"back-to-top-button":{},"pageview-count":{},"alerts":{},"autotheme":{"night":[20,21,22,23,0,1,2,3,4,5],"sepia":[6,7,8,17,18,19],"white":[9,10,11,12,13,14,15,16]},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"援桌骑士宁宁","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":[],"disableTitleFormatting":true,"variables":{},"title":"学习笔记","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"./SUMMARY.md"},"file":{"path":"book/SpringCloud/服务消费.md","mtime":"2021-09-24T02:58:15.195Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-26T09:09:52.865Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"服务网关","level":"1.5.7","depth":2,"previous":{"title":"服务容错保护","level":"1.5.6","depth":2,"path":"book/springcloud/服务容错保护.md","ref":"book/springcloud/服务容错保护.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","back-to-top-button","code","splitter","-lunr","yahei","theme-comscore","autotheme","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","advanced-emoji","klipse","alerts","hide-element","page-toc-button"],"ignores":["_book","node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Ciallo","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"yahei":{},"splitter":{},"search-pro":{},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link",".navigation-prev",".navigation-next",".copyright"]},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"family":"msyh","size":2},"highlight":{},"mermaid-gb3":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"back-to-top-button":{},"pageview-count":{},"alerts":{},"autotheme":{"night":[20,21,22,23,0,1,2,3,4,5],"sepia":[6,7,8,17,18,19],"white":[9,10,11,12,13,14,15,16]},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"援桌骑士宁宁","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":[],"disableTitleFormatting":true,"variables":{},"title":"学习笔记","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"./SUMMARY.md"},"file":{"path":"book/SpringCloud/服务网关.md","mtime":"2021-09-26T09:05:23.035Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-26T09:09:52.865Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -11,3 +11,5 @@
   * [服务消费(Ribbon)](book/SpringCloud/服务消费Ribbon.md)
   * [服务消费(Feign)](book/SpringCloud/服务消费Feign.md)
   * [配置中心](book/SpringCloud/配置中心.md)
+  * [服务容错保护](book/springcloud/服务容错保护.md)
+  * [服务网关](book/SpringCloud/服务网关.md)
