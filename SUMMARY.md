@@ -14,3 +14,5 @@
   * [服务容错保护](book/springcloud/服务容错保护.md)
   * [服务网关](book/SpringCloud/服务网关.md)
   * [消息驱动的微服务](book/springcloud/消息驱动的微服务.md)
+- [杂项](book/Other/README.md)
+  * [Mybatis](book/Other/Mybatis.md)
