@@ -9,15 +9,15 @@ bannerBg: none # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | no
 
 features: # 可选的
   - title: Java
-    details: Java框架等前端技术
+    details: Java
     link: /Java/ # 可选
     imgUrl: /img/web.png # 可选
   - title: Spring
-    details: Spring，前端页面相关技术
+    details: Spring
     link: /Spring/
     imgUrl: /img/ui.png
   - title: SpringCloud
-    details: 技术文档、教程、技巧、总结等文章
+    details: SpringCloud全家桶
     link: /SpringCloud/
     imgUrl: /img/other.png
 
