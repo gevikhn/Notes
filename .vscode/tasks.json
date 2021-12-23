@@ -4,26 +4,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "gitbook build",
+            "label": "build",
             "type": "shell",
-            "command": "gitbook build . docs",
+            "command": "npm run build",
             "problemMatcher": []
         },
         {
-            "label": "gitbook install",
+            "label": "deploy",
             "type": "shell",
-            "command": "gitbook install",
-            "problemMatcher": []
-        },
-        {
-            "label": "gitbook serve",
-            "type": "shell",
-            "command": "gitbook serve",
+            "command": "${workspaceRoot}\\deploy.bat",
             "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "dependsOn":["build"]
         }
     ]
 }
